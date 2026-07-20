@@ -1,0 +1,62 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation/access-control
+docs: https://docs.e6data.com/product-documentation/user-settings/personal-access-tokens-pat
+summary:
+  types: [http, oauth2]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    Programmatic access to e6data (Python connector, JDBC driver, REST Query
+    Count API, BI tools) authenticates with a Personal Access Token (PAT)
+    presented as a Bearer token, or a username + PAT pair for JDBC. Service
+    Accounts provide non-user programmatic credentials (downloadable key file,
+    max 10 keys) scoped by RBAC role. Console/user login is federated via SSO
+    (SAML/OAuth 2.0) and optional MFA.
+schemes:
+  - name: PersonalAccessToken
+    type: http
+    scheme: bearer
+    location: header
+    header: Authorization
+    format: "Bearer <ACCESS_TOKEN>"
+    docs: https://docs.e6data.com/product-documentation/user-settings/personal-access-tokens-pat
+    notes: >-
+      Recommended method. Tokens are created in the console (User Settings >
+      Access Token) with an optional expiry in days and are shown only once.
+      Used as the Bearer token for the REST Query Count API and as the JDBC
+      password (with the cluster username). A cluster restart is required each
+      time a new PAT is created for JDBC use.
+  - name: ServiceAccount
+    type: http
+    scheme: bearer
+    location: header
+    docs: https://docs.e6data.com/product-documentation/access-control/service-accounts
+    notes: >-
+      Non-user programmatic identity assigned an RBAC role; generates a
+      downloadable key file (typically CSV). Up to 10 keys per service account.
+      RBAC role changes take effect immediately for all API requests.
+  - name: SSO
+    type: oauth2
+    flow: authorizationCode
+    docs: https://docs.e6data.com/product-documentation/access-control/single-sign-on-sso
+    providers:
+      - AWS SSO / IAM Identity Center
+      - Okta
+      - AWS Cognito (OAuth 2.0)
+      - Microsoft Entra ID
+      - Google IdP
+    notes: >-
+      Console sign-in only (human users), not API authorization. No API-level
+      OAuth scope surface is published; programmatic access is governed by RBAC
+      roles/permissions/policies rather than OAuth scopes.
+  - name: MFA
+    type: mfa
+    status: beta
+    docs: https://docs.e6data.com/product-documentation/access-control/multi-factor-authentication-beta
+    notes: Additional verification layer for console login (beta).
+authorization:
+  model: RBAC
+  docs: https://docs.e6data.com/product-documentation/access-control
+  primitives: [users, groups, roles, permissions, policies]
+  data_level: row-level and column-level access controls (column masking, row filtering)
