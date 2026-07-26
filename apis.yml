@@ -1,8 +1,32 @@
 aid: e6data
 name: e6data
-description: 'e6data is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: b2b. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  e6data is a lakehouse compute engine built to run high-concurrency, complex
+  SQL analytics and AI workloads directly on open table formats (Apache Iceberg,
+  Delta Lake, Apache Hudi, Hive) with zero data movement, claiming 10x faster
+  queries at 60% lower cost through a decentralized, Kubernetes-native "atomic"
+  architecture that scales compute incrementally. It deploys serverless or in a
+  customer VPC across AWS, GCP and Azure, and interoperates with Databricks,
+  Snowflake, Redshift and Microsoft Fabric. Developers connect over SQL via a
+  JDBC type-4 driver, an official Python connector, and common BI/SQL tools
+  (DBeaver, Superset, Tableau, Power BI, Metabase, Zeppelin, Jupyter), plus a
+  narrow REST surface for query-history reporting. Access is authenticated with
+  Personal Access Tokens and Service Accounts and governed by RBAC with
+  row/column-level controls and SSO. Backed by Accel.
 url: https://raw.githubusercontent.com/api-evangelist/e6data/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6772770a5e5d008a7b3c6a6d/6821f8656a89dc1efd5b7bf4_Open%20Graph%20Image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,10 +35,17 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - B2B
+- Data
+- Analytics
+- Lakehouse
+- SQL
+- Query Engine
+- Data Infrastructure
+- Big Data
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,3 +55,53 @@ maintainers:
 common:
 - type: Website
   url: https://www.e6data.com/
+- type: DeveloperPortal
+  url: https://docs.e6data.com/product-documentation
+- type: Documentation
+  url: https://docs.e6data.com/product-documentation
+- type: APIReference
+  url: https://docs.e6data.com/product-documentation/connectors-and-drivers/jdbc-driver/api-support
+- type: GettingStarted
+  url: https://docs.e6data.com/product-documentation/get-started
+- type: Blog
+  url: https://www.e6data.com/blog
+- type: Pricing
+  url: https://www.e6data.com/pricing
+- type: SignUp
+  url: https://docs.e6data.com/product-documentation/sign-up
+- type: TermsOfService
+  url: https://docs.e6data.com/product-documentation/terms-and-condition
+- type: PrivacyPolicy
+  url: https://docs.e6data.com/product-documentation/privacy-policy
+- type: Support
+  url: https://www.e6data.com/contact
+- type: GitHubOrganization
+  url: https://github.com/e6x-labs
+- type: LLMsTxt
+  url: llms/e6data-llms.txt
+- type: Packages
+  url: packages/e6data-packages.yml
+- type: SDKs
+  url: packages/e6data-packages.yml
+- type: Authentication
+  url: authentication/e6data-authentication.yml
+- type: Conventions
+  url: conventions/e6data-conventions.yml
+- type: ErrorCatalog
+  url: errors/e6data-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/e6data-lifecycle.yml
+- type: ChangeLog
+  url: changelog/e6data-changelog.yml
+  name: Release Notes & Updates
+- type: Conformance
+  url: conformance/e6data-conformance.yml
+- type: Compliance
+  url: https://www.e6data.com/
+- type: DomainSecurity
+  url: security/e6data-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

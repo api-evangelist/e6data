@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation
+docs:
+  connectivity: https://docs.e6data.com/product-documentation/connectivity
+  query_count_api: https://docs.e6data.com/product-documentation/query-history/query-count-api
+  authentication: authentication/e6data-authentication.yml
+  errors: errors/e6data-error-codes.yml
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: "Bearer <ACCESS_TOKEN>"
+  detail: Personal Access Token (PAT) or Service Account key; see authentication/e6data-authentication.yml
+primary_interface:
+  type: SQL
+  transports:
+    - JDBC (type 4 driver, jdbc:e6data://... , class io.e6.jdbc.driver.E6Driver, aligned to e6data API v1.0)
+    - Python connector (thrift-based, PyPI e6data-python-connector)
+    - BI/SQL clients (DBeaver, DbVisualizer, Apache Superset, Tableau, Power BI, Metabase, Zeppelin, Jupyter)
+  detail: >-
+    e6data is a lakehouse SQL compute engine; the main programmatic surface is
+    SQL over JDBC / Python connector against a per-cluster endpoint, not a broad
+    REST resource API. Connection requires cluster ingress to be enabled and a
+    cluster UUID, hostname, port, catalog (Glue/Hive/Unity) and database.
+rest_api:
+  present: true
+  scope: narrow (management/reporting endpoints, e.g. query-history query count)
+  base_url_pattern: "https://<subdomain>.e6data.com/endpoints/v1/"
+  versioning: uri-path (v1)
+  content_type: application/json
+  example_endpoint:
+    name: Query Count
+    method: POST
+    path: /endpoints/v1/query-history/get-query-count/
+    query_params: [from_date, to_date]
+    auth: "Authorization: Bearer <ACCESS_TOKEN>"
+    request_fields: [workspace_name, run_by, cluster_name]
+    response_envelope: "{ result: [ { status, count } ] }"
+pagination:
+  documented: partial
+  detail: >-
+    The Query Count API returns the latest 100 records by default when no
+    start/end date is supplied; no cursor/offset scheme is documented for the
+    narrow REST surface. SQL result paging is handled by the JDBC/Python
+    ResultSet (forward-only, read-only; cursor movement not supported by JDBC).
+idempotency:
+  documented: false
+  detail: No idempotency-key contract is published; queries are the unit of work over SQL.
+error_handling:
+  rest_envelope: "JSON result payloads"
+  coded_registry: errors/e6data-error-codes.yml (QE-prefixed codes)
+  client_behavior: JDBC surfaces failures as java.sql.SQLException; connector raises exceptions.
+time:
+  timezone: UTC
+  detail: >-
+    REST date params (from_date/to_date) are UTC in 'YYYY-MM-DD HH:MM:SS' form;
+    JDBC timestamp query values must be supplied in UTC.
+rate_limiting:
+  documented: false
+  network_controls: [IP allowlisting / IP sets, network firewall, cluster ingress, PrivateLink/VPC peering]

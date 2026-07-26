@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation/connectors-and-drivers
+packages:
+  - language: python
+    registry: pypi
+    name: e6data-python-connector
+    version: 2.3.15
+    url: https://pypi.org/project/e6data-python-connector/
+    repository: https://github.com/e6x-labs/e6data-python-connector
+    install: pip install --no-cache-dir e6data-python-connector
+    summary: Client for the e6data distributed SQL Engine.
+    docs: https://docs.e6data.com/product-documentation/connectors-and-drivers/python-connector
+    official: true
+  - language: java
+    registry: maven
+    name: com.e6data:e6-jdbc-driver
+    version: 1.1.57
+    url: https://mvnrepository.com/artifact/com.e6data/e6-jdbc-driver/1.1.57
+    driver_class: io.e6.jdbc.driver.E6Driver
+    install: "implementation 'com.e6data:e6-jdbc-driver:1.1.57'"
+    summary: e6data JDBC type 4 driver (Java 8+). Connects JDBC-capable clients and BI tools to e6data.
+    docs: https://docs.e6data.com/product-documentation/connectors-and-drivers/jdbc-driver
+    official: true

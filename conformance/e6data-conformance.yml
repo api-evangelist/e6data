@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.e6data.com/
+standards:
+  - id: jdbc-4
+    conforms: true
+    evidence: e6data ships a JDBC type 4 driver (io.e6.jdbc.driver.E6Driver) aligned to e6data API v1.0.
+  - id: oauth2
+    conforms: true
+    evidence: Console SSO supports OAuth 2.0 (AWS Cognito integration).
+  - id: oidc-saml-sso
+    conforms: true
+    evidence: SSO via AWS IAM Identity Center, Okta, Microsoft Entra ID, Google IdP.
+  - id: apache-iceberg
+    conforms: true
+    evidence: Native query support for Apache Iceberg open table format.
+  - id: delta-lake
+    conforms: true
+    evidence: Native query support for Delta Lake table format.
+  - id: apache-hudi
+    conforms: true
+    evidence: Native query support for Apache Hudi table format.
+  - id: apache-hive
+    conforms: true
+    evidence: Hive Metastore catalog + Hive table format support.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are a coded QE registry / JSON payloads, not application/problem+json.
+compliance:
+  published: true
+  source: https://www.e6data.com/
+  programs:
+    - SOC 2
+    - ISO
+    - HIPAA
+    - GDPR
+  detail: >-
+    e6data states enterprise compliance covering SOC 2, ISO, HIPAA and GDPR on
+    its marketing site, alongside row/column-level access controls and IAM
+    integration. No dedicated trust center page was found at probe time.

@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation/error-codes/query-editor-errors
+format: coded
+support_contact: help@e6data.com
+notes: >-
+  e6data publishes a coded error registry for the Query Editor. Codes are of the
+  form QE<nn> and each carries a description and a recommended solution. The
+  distributed SQL engine surfaces query failures to clients (Python connector,
+  JDBC) as exceptions (for JDBC, java.sql.SQLException).
+errors:
+  - code: QE01
+    area: query-editor
+    description: Query Editor operation failed. Please contact e6data support.
+    action: Contact e6data support at help@e6data.com for help with this error.
+  - code: QE02
+    area: query-editor
+    description: Connection to cluster failed. Please check the cluster status or try again in a few minutes.
+    action: Ensure the cluster is in an active state before retrying.
+  - code: QE03
+    area: query-editor
+    description: Communication with the Query Engine was interrupted. Please rerun the query.
+    action: Rerun the query.
+  - code: QE04
+    area: query-editor
+    description: The Query Editor session has become stale. Please refresh the browser. If the issue persists contact e6data support.
+    action: Refresh the browser or contact e6data support if unresolved.
+  - code: QE05
+    area: query-editor
+    description: Internet connectivity is unavailable, please check your connection.
+    action: Ensure internet connectivity is working properly and try again.

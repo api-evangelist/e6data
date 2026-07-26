@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation/release-notes-and-updates
+versioning:
+  api:
+    scheme: version-number
+    current: "1.0"
+    docs: https://docs.e6data.com/product-documentation/connectors-and-drivers/jdbc-driver/api-support
+    detail: >-
+      The e6data JDBC driver aligns to version 1.0 of the e6data API. Methods
+      from later API versions may be callable but are not guaranteed to be
+      supported.
+  rest:
+    scheme: uri-path
+    current: v1
+  drivers:
+    jdbc: "1.1.57"
+    python_connector: "2.3.15"
+release_notes:
+  url: https://docs.e6data.com/product-documentation/release-notes-and-updates
+  cadence: dated (see changelog/e6data-changelog.yml)
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No formal deprecation/sunset-header policy published.
+sla:
+  url: null
+status_page: null

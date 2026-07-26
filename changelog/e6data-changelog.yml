@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.e6data.com/product-documentation/release-notes-and-updates
+url: https://docs.e6data.com/product-documentation/release-notes-and-updates
+scheme: dated
+title: Release Notes & Updates
+note: >-
+  e6data publishes a dated release-notes stream ("New features, announcements &
+  bug fixes"). Recent-window entries captured below from the published index;
+  the live release-notes page is the source of truth.
+entries:
+  - date: '2024-06-06'
+    highlights: MFA and service accounts.
+  - date: '2024-04-18'
+    highlights: Improved connectivity, security, and query editing features.
+  - date: '2024-04-09'
+    highlights: Schema behavior improvements within the Schema Explorer.
+  - date: '2024-03-30'
+    highlights: Catalog privileges for column masking and row filtering; query-history enhancements; Iceberg deletion vector support.
+  - date: '2024-03-16'
+    highlights: Export query history to CSV.
+  - date: '2024-03-14'
+    highlights: New DataExport role; improved resource selection in catalog privileges; client-perceived time in query history.
+  - date: '2024-03-12'
+    highlights: Enhanced cluster connection info; improved connectivity; catalog refresh for Data Analyst roles.
+  - date: '2024-03-02'
+    highlights: Catalog privileges (Beta); liquid clustering support; new functions; Metabase impersonation via Apache Ranger.
+  - date: '2024-02-10'
+    highlights: Gateway connectivity for external client connections via endpoints.
+  - date: '2024-02-03'
+    highlights: New connectivity and notebook features.
